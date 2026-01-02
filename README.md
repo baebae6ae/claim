@@ -300,50 +300,6 @@ delete_event(selected_id)
 
 ---
 
-## 🐛 트러블슈팅
-
-### 1. "엑셀에 [제조일자] 컬럼이 필요합니다"
-**원인**: `master_data.xlsx`가 없거나 유통기한 정보 누락
-
-**해결**:
-```python
-# master_data.xlsx 생성
-품목명, 유통기한
-제품A, 12
-제품B, 6
-```
-
-### 2. 출고량이 0으로 표시
-**원인**: `data/*.xlsx` 파일명 규칙 불일치
-
-**해결**:
-- 파일명: `공장명YYYYMM.xlsx` (예: `이천공장202501.xlsx`)
-- 컬럼명: `내수실제판매량B` 정확히 일치
-
-### 3. 예측 실패 (NaN)
-**원인**: 데이터 길이가 너무 짧거나 0이 너무 많음
-
-**해결**:
-- 최소 24개월 이상 데이터 확보 (계절성 감지)
-- 결측 월은 자동으로 0으로 채워지지만, 모든 값이 0이면 예측 불가
-
-### 4. Perplexity API 오류
-**원인**: API 키 미설정 또는 만료
-
-**해결**:
-```python
-PPLX_API_KEY = "your-valid-api-key"
-```
-
-### 5. 품질이슈 삭제 안됨
-**원인**: id 선택 안됨
-
-**해결**:
-- 목록에서 행을 반드시 클릭하여 id 선택
-- "선택된 품질이슈/변경이력 id" 필드에 값 확인
-
----
-
 ## 📊 주요 메트릭 정의
 
 | 메트릭 | 수식 | 의미 |
@@ -371,32 +327,6 @@ manufacturer: "M001"
 
 ---
 
-## 📜 라이선스
-
-MIT License
-
----
-
-## 👥 기여
-
-### 개발자
-- 데이터 분석 로직
-- Perplexity API 연동
-- Gradio UI 설계
-
-### 개선 아이디어 환영
-- Issue 등록
-- Pull Request
-
----
-
-## 📞 문의
-
-- **Email**: your-email@example.com
-- **GitHub**: https://github.com/your-repo
-
----
-
 ## 🎓 참고 자료
 
 - [Gradio 공식 문서](https://gradio.app)
@@ -405,6 +335,3 @@ MIT License
 - [pmdarima auto_arima](http://alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html)
 - [Perplexity API](https://docs.perplexity.ai)
 
----
-
-**🎉 Sempio Claims Analytics Navigator로 데이터 기반 의사결정을 시작하세요!**
